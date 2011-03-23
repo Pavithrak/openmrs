@@ -21,13 +21,13 @@ public class LoginSteps extends Steps {
 		super(driver);
 	}
 
-	@Given("I am on the login page of OpenMRS with url $url")
-	public void onLoginPage(String url) {
-		goTo(url);
+	@Given("I am at the login page")
+	public void onLoginPage() {
+		goTo("http://localhost:8080/openmrs");
 		assertPresenceOf(button().with(attribute("value", equalTo("Log In"))));
 	}
 
-	@When("I enter $username as the username and $password as the password and click the 'Log In' button")
+	@When("I enter $username as the username and $password as the password and 'Log In'")
 	public void logIn(String username, String password) {
 
 		type(username, into(textbox()

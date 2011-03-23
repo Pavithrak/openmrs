@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openmrs</groupId>
-    <artifactId>release-test</artifactId>
+    <artifactId>openmrs-release-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>release-test</name>
     <dependencies>
@@ -91,7 +91,7 @@
                                 <phase>integration-test</phase>
                                 <configuration>
                                     <includes>
-                                        <include>**/stories/InstallationWizard.java</include>
+                                        <include>**/stories/*Create*Patient*.java</include>
                                     </includes>
                                 </configuration>
                                 <goals>
@@ -111,6 +111,7 @@
 					<webAppSourceDirectory>${project.parent.basedir}/webapp/src/main/webapp
 			                    </webAppSourceDirectory>
 					<webApp>${project.parent.basedir}/webapp/target/openmrs.war</webApp>
+					<contextPath>/openmrs</contextPath>
 					<systemProperties>
 						<systemProperty>
 							<name>testConfiguration</name>

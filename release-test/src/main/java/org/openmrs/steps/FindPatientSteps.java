@@ -17,7 +17,7 @@ public class FindPatientSteps extends Steps {
         super(driver);
     }
 
-    @Given("I am on $title screen")
+    @Given("I am at $title screen")
     public void onHomePage(String title) {
         assertPresenceOf(title().with(text(equalTo("OpenMRS - " + title))));
     }
@@ -28,7 +28,7 @@ public class FindPatientSteps extends Steps {
     }
 
 
-    @Then("take me to Find/Create Patient Page with $createPatientTitle as title")
+    @Then("show me the $createPatientTitle page")
     public void verifyCreatePatientPage(String createPatientTitle) {
         assertPresenceOf(title().with(text(equalTo("OpenMRS - " + createPatientTitle))));
     }

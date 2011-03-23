@@ -20,7 +20,7 @@ public class InstallationWizardSteps extends Steps {
 
 	@Given("I am on the $wizard")
 	public void beginInstallation(String wizard) {
-		goTo("http://localhost:8080/openmrs-release-test/initialsetup");
+		goTo("http://localhost:8080/openmrs/initialsetup");
 		assertPresenceOf(div().with(text(containsString(wizard))));
 	}
 
@@ -49,17 +49,20 @@ public class InstallationWizardSteps extends Steps {
 
 	@When("I enter a database url and mention $database as the database, $user as the user name and $password as the password")
 	public void enterConnectionUrl(String database, String user, String password) {
-		type("jdbc:mysql:mxj://localhost:3316/openmrs_memory?"
+		type("jdbc:mysql:mxj://localhost:3316/@DBNAME@?"
 				+ "autoReconnect=true&sessionVariables=storage_engine=InnoDB"
 				+ "&useUnicode=true&characterEncoding=UTF-8&server.initialize-user=true"
 				+ "&createDatabaseIfNotExist=true&server.basedir=target/database&server.datadir=target/database/data"
 				+ "&server.collation-server=utf8_general_ci&server.character-set-server=utf8",
 				into(textbox().with(
 						attribute("name", equalTo("database_connection")))));
+        clickOn(radioButton().with(
+                attribute("name", equalTo("current_openmrs_database"))).with(attribute("value",equalTo("no"))));
+
 		type(database,
 				into(textbox().with(
 						attribute("name",
-								equalTo("openmrs_current_database_name")))));
+								equalTo("openmrs_new_database_name")))));
 		type(user,
 				into(textbox().with(
 						attribute("name", equalTo("create_database_username")))));

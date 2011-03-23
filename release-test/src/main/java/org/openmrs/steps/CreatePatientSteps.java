@@ -19,7 +19,7 @@ public class CreatePatientSteps extends Steps {
         super(driver);
     }
 
-    @Given("I am on the Find/Create Patient Page")
+    @Given("I am at the Find/Create Patient Page")
     public void onFindCreatePatientPage() {
         assertPresenceOf(title().with(text(equalTo("OpenMRS - Find Patient"))));
 
@@ -51,28 +51,12 @@ public class CreatePatientSteps extends Steps {
         clickOn(button());
     }
 
-
-    @Then("take me to Found Similar People Page")
-    public void verifyFoundSimilarPeoplePage() {
-        assertPresenceOf(button("I cannot find the person on the list"));
-    }
-
-    @Given("I am on the Found Similar People Page")
-    public void givenOnFoundSimilarPeoplePage() {
-        assertPresenceOf(button("I cannot find the person on the list"));
-    }
-
-    @When("I click on the I cannot find the person on the list button")
-    public void clickOnICannotFindPerson() {
-        clickOn(button("I cannot find the person on the list"));
-    }
-
     @Then("take me to the Create Patient Page")
     public void verifyIfIamOnCreatePatientPage() {
         assertPresenceOf(button("Save"));
     }
 
-    @Given("I am on the Create Patient Page")
+    @Given("I am at the Create Patient Page")
     public void givenIamOnCreatePatientPage() {
         assertPresenceOf(button("Save"));
     }
